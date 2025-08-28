@@ -46,7 +46,7 @@ The Spider-Man color palette is defined in the theme properties:
         win95teal: "#008080"
     })
   ```
-#### Loading Text Messages *(Line 169)*
+##### Loading Text Messages *(Line 169)*
 💡 **Quick Setup**: Pre-translated versions are available in Releases for English and Spanish !
 Customize the loading messages for different languages *(Default in French)*:
    ```qml

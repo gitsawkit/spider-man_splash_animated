@@ -17,7 +17,13 @@
 
 ## 🚀 Installation
 
-### Method 1: Manual Installation
+### Method 1: KDE Store *(Recommended)*
+1. **Visit the KDE Store**: [Spider-Splash on Pling](https://www.pling.com/p/2316665/)
+2. **Click "Install"** or download the package
+3. **Activate** in System Settings > Appearance > Splash Screen > **Spider-Splash**
+4. **Log out & back in** (or restart Plasma) to see your friendly neighborhood splash screen
+
+### Method 2: Manual Installation
 1. **Download** the latest release or clone this repository
 2. **Copy the package** folder into your Plasma look-and-feel directory:
    ```bash
@@ -26,19 +32,50 @@
 3. **Activate** in System Settings > Appearance > Splash Screen > **Spider-Splash**
 4. **Log out & back in** *(or restart Plasma)* to see your friendly neighborhood splash screen
 
-### Method 2: KDE Store
-Coming soon on store.kde.org
-
 #### 🎨 Customization
+##### Color Palette *(Line 33)*
 The Spider-Man color palette is defined in the theme properties:
   ```qml
-  qmlproperty var theme: ({
-      primary: "#DC143C",      // Spider-Man red
-      secondary: "#0047AB",    // Spider-Man blue
-      background: "#000000",   // Pure black
-      // ... more colors
-  })
+    // Theme colors
+    property var theme: ({
+        primary: "#D80000",
+        secondary: "#000000",
+        text: "#FEFEFE",
+        border: "#D80000",
+        accent: "#0047AB",
+        win95teal: "#008080"
+    })
   ```
+#### Loading Text Messages *(Line 169)*
+💡 **Quick Setup**: Pre-translated versions are available in Releases for English and Spanish !
+Customize the loading messages for different languages *(Default in French)*:
+   ```qml
+      // Plasma-specific stage handling
+onStageChanged: {
+    switch (stage) {
+        case 1:
+            loadingText.text = "Initialisation...";        // Change to your language
+            root.progress = 0.2;
+            break;
+        case 2:
+            loadingText.text = "Chargement des Spider-Services...";  // Loading Spider-Services
+            root.progress = 0.4;
+            break;
+        case 3:
+            loadingText.text = "Démarrage de Spider-Desktop...";     // Starting Spider-Desktop
+            root.progress = 0.6;
+            break;
+        case 4:
+            loadingText.text = "Préparation...";           // Preparing
+            root.progress = 0.8;
+            break;
+        case 5:
+            loadingText.text = "Prêt";                     // Ready
+            root.progress = 1.0;
+            break;
+    }
+}
+   ```
 
 #### 📄 License
 This package is **dual-licensed**:
